@@ -9,9 +9,8 @@ metadata:
     component: shipping
     tier: backend
 data:
-  MONGO: "true"
-  MONGO_URL: "mongodb://mongodb:27017/catalogue"
-
+   CART_ENDPOINT: "cart:8080"
+   DB_HOST: "mysql"
 ---
 
 apiVersion: apps/v1
@@ -26,11 +25,13 @@ metadata:
     tier: backend
 spec:
   selector:
+   # these labels are used to select pods
     matchLabels:
       component: shipping
   replicas: 1
   template:
     metadata:
+    # these labels are used to identify pods
       labels:
         component: shipping
     spec:
