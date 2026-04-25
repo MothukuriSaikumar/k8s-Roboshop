@@ -21,7 +21,6 @@ metadata:
   namespace: roboshop
   labels:
     project: roboshop
-    environment: dev
     component: catalogue
     tier: backend
 spec:
@@ -36,7 +35,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: saikumar19/catalogue:v1
+        image: saikumar19/catalogue:v2
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
@@ -61,12 +60,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  
   name: catalogue
   namespace: roboshop
   labels:
     project: roboshop
-    environment: dev
     component: catalogue
     tier: backend
 spec:
